@@ -11,6 +11,7 @@
     // functions to fire on events
     events: {
       // "click a.delete": "destroy"
+      "click a.url": "navigate"
     },
 
     // the constructor
@@ -20,9 +21,24 @@
       this.collection.fetch();
     },
 
+    navigate: function (event) {
+      var $link = $(event.target);
+      chrome.tabs.getSelected(null,function(tab) {
+        chrome.tabs.update(tab.id, {url: $link.attr('href')});
+      });
+      // window.close(); // To close the popup.
+    },
+
     // populate the html to the dom
     render: function () {
-      $(this.el).html(Mustache.to_html(this.template, {bookmarks: this.collection.toJSON()}));
+      console.dir(this.collection.toJSON());
+
+      var html = Mustache.to_html(this.template, {
+        bookmarks: this.collection.toJSON(),
+        title: "Recent Bookmarks"
+      });
+
+      $(this.el).html(html);
       return this;
     }
 

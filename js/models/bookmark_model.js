@@ -7,9 +7,11 @@
   window.CMARKS.Models.BookmarkModel = Backbone.Model.extend({
 
     // the default fields
-    url: 'fooo',
+    url: '--',
     defaults: {
-      name: ""
+      title: "",
+      url: "",
+      dateAdded: 0
     },
 
     // the constructor
@@ -22,14 +24,13 @@
   window.CMARKS.Collections.BookmarksCollection = Backbone.Collection.extend({
     // Reference to this collection's model.
     model: CMARKS.Models.BookmarkModel,
-    url: 'foo',
+    url: '--',
 
     fetch: function () {
-      console.log('hhhhh')
-      this.reset([{name: "foo"}, {name: "bar"}]);
-      return
+      // this.reset([{name: "foo"}, {name: "bar"}]);
+      // return
 
-      chrome.bookmarks.getRecent(5, _.bind(function (marks) {
+      chrome.bookmarks.getRecent(100, _.bind(function (marks) {
         this.reset(marks);
       }, this));
     }
