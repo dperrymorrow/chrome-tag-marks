@@ -1,49 +1,17 @@
-// chrome.bookmarks.search('javascript', function (result){
-//   console.dir(result);
-//   $("content").html(result.toString());
-// });
+window.CMARKS = window.CMARKS || {};
+window.CMARKS.App = (function () {
+  "use strict";
 
-
-App = Ember.Application.create();
-
-
-App.Router.map(function() {
-  return this.route('bookmarks', {
-    path: '/'
-  });
-});
-
-App.BookmarksRoute = Ember.Route.extend({
-  setupController: function(controller) {
-    return controller.set('content', []);
+  function App() {
+    var router = new CMARKS.Routers.AppRouter();
+    router.index();
   }
-});
 
+  // App.prototype.exampleFunction = function(parens) {
 
-App.BookmarksController = Ember.Controller.extend({
-  bookmarks: [],
+  // };
 
-  addBookmark: function() {
-    this.bookmarks.pushObject(Ember.Object.create({
-      name: this.get('newName')
-    }));
-    return this.set('newName', "");
-  }
-});
+  return App;
+})();
 
-
-
-// App.IndexRoute = Ember.Route.extend({
-//   model: function() {
-//     return ['red', 'yellow', 'blue'];
-
-//     // debugger
-
-//     // chrome.bookmarks.search('javascript', function (result){
-//     //   console.dir(result);
-//     //   return result;
-//     // });
-//   }
-// });
-
-
+var app = new CMARKS.App();
