@@ -11,32 +11,35 @@
 
   %script#search-view{:type => "text/jst"}
     %form.form-search
-      %input#search-field.input-medium.search-query{:type => "text"}
+      .controls-row
+        %input#search-field.input-medium.search-query.span12{:type => "text", :placeholder => "Search your bookmarks"}
 
-  %script#bookmark-index{:type => "text/jst"}
-    %h2 {{title}}
-    {{#bookmarks}}
+  %script#bookmark-view{:type => "text/jst"}
+    .row-fluid.time-ago
+      .span12
+        {{timeAgo}}
+
     .row-fluid
       .span6
         %a.url{:href => "{{{url}}}"}
-          {{title}}
+          {{shortTitle}}
       .span3
-        {{dateAdded}}
-      .span3
-        %a{:href => "#bookmark/destroy{{id}}"}
+        %a.delete{:href => "#bookmark/destroy{{id}}"}
           %i.icon-trash
-    {{/bookmarks}}
 
   / libraries
   %script{:type => "text/javascript", :src => "js/libs/jquery-1.9.1.min.js"}
   %script{:type => "text/javascript", :src => "js/libs/bootstrap.min.js"}
   %script{:type => "text/javascript", :src => "js/libs/underscore.min.js"}
+  %script{:type => "text/javascript", :src => "js/libs/underscore_string.min.js"}
+  %script{:type => "text/javascript", :src => "js/libs/moment.js"}
   %script{:type => "text/javascript", :src => "js/libs/backbone.min.js"}
   %script{:type => "text/javascript", :src => "js/libs/mustache.min.js"}
 
   / custom scripts
   %script{:type => "text/javascript", :src => "js/router.js"}
   %script{:type => "text/javascript", :src => "js/models/bookmark_model.js"}
+  %script{:type => "text/javascript", :src => "js/views/bookmark_view.js"}
   %script{:type => "text/javascript", :src => "js/views/index_view.js"}
   %script{:type => "text/javascript", :src => "js/views/search_view.js"}
   %script{:type => "text/javascript", :src => "js/app.js"}

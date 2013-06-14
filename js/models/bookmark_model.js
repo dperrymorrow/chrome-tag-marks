@@ -23,6 +23,10 @@
     url: '--',
     searchPhrase: '',
 
+    comparator: function(mark) {
+      return mark.get("dateAdded");
+    },
+
     fetch: function () {
       // this.reset([{name: "foo"}, {name: "bar"}]);
       // return
@@ -32,12 +36,10 @@
           this.reset(marks);
         }, this));
       } else {
-        console.log(this.searchPhrase)
         chrome.bookmarks.search(this.searchPhrase, _.bind(function (marks) {
           this.reset(marks);
         }, this));
       }
-
     }
   });
 

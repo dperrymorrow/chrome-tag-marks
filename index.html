@@ -12,38 +12,42 @@
   </div>
   <script id='search-view' type='text/jst'>
     <form class='form-search'>
-      <input class='input-medium search-query' id='search-field' type='text'>
+      <div class='controls-row'>
+        <input class='input-medium search-query span12' id='search-field' placeholder='Search your bookmarks' type='text'>
+      </div>
     </form>
   </script>
-  <script id='bookmark-index' type='text/jst'>
-    <h2>{{title}}</h2>
-    {{#bookmarks}}
+  <script id='bookmark-view' type='text/jst'>
+    <div class='row-fluid time-ago'>
+      <div class='span12'>
+        {{timeAgo}}
+      </div>
+    </div>
     <div class='row-fluid'>
       <div class='span6'>
         <a class='url' href='{{{url}}}'>
-          {{title}}
+          {{shortTitle}}
         </a>
       </div>
       <div class='span3'>
-        {{dateAdded}}
-      </div>
-      <div class='span3'>
-        <a href='#bookmark/destroy{{id}}'>
+        <a class='delete' href='#bookmark/destroy{{id}}'>
           <i class='icon-trash'></i>
         </a>
       </div>
     </div>
-    {{/bookmarks}}
   </script>
   <!-- libraries -->
   <script src='js/libs/jquery-1.9.1.min.js' type='text/javascript'></script>
   <script src='js/libs/bootstrap.min.js' type='text/javascript'></script>
   <script src='js/libs/underscore.min.js' type='text/javascript'></script>
+  <script src='js/libs/underscore_string.min.js' type='text/javascript'></script>
+  <script src='js/libs/moment.js' type='text/javascript'></script>
   <script src='js/libs/backbone.min.js' type='text/javascript'></script>
   <script src='js/libs/mustache.min.js' type='text/javascript'></script>
   <!-- custom scripts -->
   <script src='js/router.js' type='text/javascript'></script>
   <script src='js/models/bookmark_model.js' type='text/javascript'></script>
+  <script src='js/views/bookmark_view.js' type='text/javascript'></script>
   <script src='js/views/index_view.js' type='text/javascript'></script>
   <script src='js/views/search_view.js' type='text/javascript'></script>
   <script src='js/app.js' type='text/javascript'></script>
