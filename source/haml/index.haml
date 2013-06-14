@@ -5,12 +5,16 @@
 
 %body
   .container-fluid
+    #search-container
     #content
       / content gets put here with jst
 
+  %script#search-view{:type => "text/jst"}
+    %form.form-search
+      %input#search-field.input-medium.search-query{:type => "text"}
+
   %script#bookmark-index{:type => "text/jst"}
-    %h2
-      {{title}}
+    %h2 {{title}}
     {{#bookmarks}}
     .row-fluid
       .span6
@@ -31,7 +35,8 @@
   %script{:type => "text/javascript", :src => "js/libs/mustache.min.js"}
 
   / custom scripts
+  %script{:type => "text/javascript", :src => "js/router.js"}
   %script{:type => "text/javascript", :src => "js/models/bookmark_model.js"}
   %script{:type => "text/javascript", :src => "js/views/index_view.js"}
-  %script{:type => "text/javascript", :src => "js/router.js"}
+  %script{:type => "text/javascript", :src => "js/views/search_view.js"}
   %script{:type => "text/javascript", :src => "js/app.js"}

@@ -1,9 +1,5 @@
 (function () {
   "use strict";
-
-  window.CMARKS             = window.CMARKS || {};
-  window.CMARKS.Models      = window.CMARKS.Models || {};
-  window.CMARKS.Collections = window.CMARKS.Collections || {};
   window.CMARKS.Models.BookmarkModel = Backbone.Model.extend({
 
     // the default fields
@@ -25,14 +21,23 @@
     // Reference to this collection's model.
     model: CMARKS.Models.BookmarkModel,
     url: '--',
+    searchPhrase: '',
 
     fetch: function () {
       // this.reset([{name: "foo"}, {name: "bar"}]);
       // return
 
-      chrome.bookmarks.getRecent(100, _.bind(function (marks) {
-        this.reset(marks);
-      }, this));
+      if (this.searchPhrase === '') {
+        chrome.bookmarks.getRecent(100, _.bind(function (marks) {
+          this.reset(marks);
+        }, this));
+      } else {
+        console.log(this.searchPhrase)
+        chrome.bookmarks.search(this.searchPhrase, _.bind(function (marks) {
+          this.reset(marks);
+        }, this));
+      }
+
     }
   });
 

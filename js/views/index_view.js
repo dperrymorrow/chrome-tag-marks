@@ -1,8 +1,5 @@
 (function () {
   "use strict";
-  window.CMARKS = window.CMARKS || {};
-  window.CMARKS.Views = window.CMARKS.Views || {};
-
   window.CMARKS.Views.BookmarksIndexView = Backbone.View.extend({
     template: $('#bookmark-index').html(),
     // the wrapper

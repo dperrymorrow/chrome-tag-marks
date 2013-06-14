@@ -1,5 +1,8 @@
-window.CMARKS                   = window.CMARKS || {};
-window.CMARKS.Routers           = window.CMARKS.Routers || {};
+window.CMARKS             = window.CMARKS || {};
+window.CMARKS.Routers     = window.CMARKS.Routers || {};
+window.CMARKS.Models      = window.CMARKS.Models || {};
+window.CMARKS.Collections = window.CMARKS.Collections || {};
+window.CMARKS.Views       = window.CMARKS.Views || {};
 window.CMARKS.Routers.AppRouter = Backbone.Router.extend({
   _instance: null,
   bookmarks: {},
@@ -12,8 +15,10 @@ window.CMARKS.Routers.AppRouter = Backbone.Router.extend({
   },
 
   initialize: function (options) {
-    this.bookmarks = new CMARKS.Collections.BookmarksCollection();
     this._instance = this;
+    this.bookmarks = new CMARKS.Collections.BookmarksCollection();
+    this.searchView = new CMARKS.Views.BookmarksSearchView({collection: this.bookmarks});
+    $('#search-container').html(this.searchView.render().el);
   },
 
   index: function () {
