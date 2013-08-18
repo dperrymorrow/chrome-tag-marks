@@ -27,17 +27,23 @@
       return mark.get("dateAdded");
     },
 
+    clearJs: function (marks) {
+      return _.reject(marks, function (mark) {
+        return _.str.include(mark.url, 'javascript:%20');
+      });
+    },
+
     fetch: function () {
       // this.reset([{name: "foo"}, {name: "bar"}]);
       // return
 
       if (this.searchPhrase === '') {
         chrome.bookmarks.getRecent(100, _.bind(function (marks) {
-          this.reset(marks);
+          this.reset(this.clearJs(marks));
         }, this));
       } else {
         chrome.bookmarks.search(this.searchPhrase, _.bind(function (marks) {
-          this.reset(marks);
+          this.reset(this.clearJs(marks));
         }, this));
       }
     }

@@ -16,14 +16,15 @@
 
   %script#bookmark-view{:type => "text/jst"}
     .row-fluid.time-ago
-      .span12
-        {{timeAgo}}
+      .span12.text-center
+        .label
+          {{timeAgo}}
 
     .row-fluid
-      .span6
+      .span10
         %a.url{:href => "{{{url}}}"}
           {{shortTitle}}
-      .span3
+      .span2
         %a.delete{:href => "#bookmark/destroy{{id}}"}
           %i.icon-trash
 

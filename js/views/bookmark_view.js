@@ -16,9 +16,6 @@
     render: function () {
       var html = Mustache.to_html(this.template,
         _.extend(this.model.toJSON(), {
-          shortTitle: function () {
-            return _.str.truncate(this.title, 20);
-          },
           timeAgo: function () {
             return moment(this.dateAdded).fromNow();
           }
