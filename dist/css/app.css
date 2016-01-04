@@ -6,10 +6,10 @@ input {
 }
 ::-webkit-input-placeholder {
   font-style: italic;
-  color: #cccccc;
+  color: #ccc;
 }
 input {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
 }
 * {
   -webkit-box-sizing: border-box;
@@ -43,7 +43,7 @@ body {
   color: #8c8c8c;
 }
 .form-search {
-  border-bottom: 1px dotted #cccccc;
+  border-bottom: 1px dotted #ccc;
   padding-bottom: 4px;
 }
 .search-query {
@@ -51,7 +51,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   padding: 4px;
-  font-size: 1.1700000000000002em;
+  font-size: 1.17em;
   margin-bottom: 8px;
 }
 .truncate {
@@ -83,7 +83,7 @@ body {
   line-height: 100%;
   font-size: 0.9em;
   display: block;
-  color: #999999;
+  color: #999;
   text-decoration: none;
 }
 .link-container:hover {

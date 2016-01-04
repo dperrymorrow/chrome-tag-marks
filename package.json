@@ -1,0 +1,40 @@
+{
+  "name": "chrome-tag-marks",
+  "version": "1.0.0",
+  "description": "live search and management of your chrome bookmarsk",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dperrymorrow/chrome-tag-marks.git"
+  },
+  "author": "David Morrow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dperrymorrow/chrome-tag-marks/issues"
+  },
+  "homepage": "https://github.com/dperrymorrow/chrome-tag-marks#readme",
+  "dependencies": {
+    "backbone": "^1.2.3",
+    "font-awesome": "^4.5.0",
+    "handlebars": "^4.0.5",
+    "moment": "^2.11.0",
+    "mustache": "^2.2.1",
+    "underscore.string": "^3.2.2",
+    "zepto": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-jade": "^0.15.0",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-notify": "^0.4.3"
+  }
+}
