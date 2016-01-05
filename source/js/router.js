@@ -1,9 +1,11 @@
-window.CMARKS             = window.CMARKS || {};
-window.CMARKS.Routers     = window.CMARKS.Routers || {};
-window.CMARKS.Models      = window.CMARKS.Models || {};
-window.CMARKS.Collections = window.CMARKS.Collections || {};
-window.CMARKS.Views       = window.CMARKS.Views || {};
-window.CMARKS.Routers.AppRouter = Backbone.Router.extend({
+window.CMARKS = {
+  Routers: {},
+  Models: {},
+  Collections: {},
+  Views: {}
+};
+
+CMARKS.Routers.AppRouter = Backbone.Router.extend({
   _instance: null,
   bookmarks: {},
 
@@ -26,11 +28,8 @@ window.CMARKS.Routers.AppRouter = Backbone.Router.extend({
     $('#content').html(this.view.render().el);
   },
 
-  destroy: function (id) {
-  },
-
-  edit: function (id) {
-  },
+  destroy: function (id) {},
+  edit: function (id) {},
 
   getInstance: function () {
     this._instance = this._instance || new CMARKS.Routers.AppsRouter();

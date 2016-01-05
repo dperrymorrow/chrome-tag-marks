@@ -9,27 +9,30 @@ module.exports = function (grunt) {
       files: {
         src: [
           'Gruntfile.js',
-          'js/**/*.js'
+          'source/js/**/*.js'
         ]
       },
       options: {
         globals: {
-          'window': true, '_': true, '$': true, 'WH': true, 
-          'ZeroClipboard': true, 'Mustache': true, 'Zepto': true, 
-          'module': true, 'alert': true, 'console': true, 'document': true,
-          'expect': true, 'utils': true
+          'CMARKS': true, 'Backbone': true, 'chrome': true, 's': true,
+          'window': true, '_': true, '$': true, 'WH': true, 'Mustache': true,
+          'ZeroClipboard': true, 'Handlebars': true, 'moment': true, 'Zepto': true, 
+          'module': true, 'console': true, 'document': true,
+          'utils': true
         },
+        scripturl: true,
+        strict: false,
         indent: 2,
         nomen: true,
-        strict: true,
         undef: true,
         regexp: true,
         esnext: false,
+        debug: true,
         moz: true,
         boss: true,
         node: false,
         validthis: true,
-        unused: true
+        unused: false
       }
     },
 
@@ -44,7 +47,8 @@ module.exports = function (grunt) {
             'node_modules/zepto/zepto.min.js',
             'node_modules/underscore/underscore-min.js',
             'node_modules/backbone/backbone-min.js',
-            'node_modules/mustache/mustache.min.js',
+            'node_modules/mustache/mustache.js',
+            'node_modules/handlebars/dist/handlebars.min.js',
             'node_modules/underscore.string/dist/underscore.string.min.js',
             'node_modules/moment/moment.js'
           ]
@@ -53,8 +57,16 @@ module.exports = function (grunt) {
     },
 
     concat: {
+      options: {
+        'separator': "\n\n",
+      },
       app: {
-        src: ['source/js/*.js', 'source/js/**/*.js'],
+        src: [
+          'source/js/router.js', 
+          'source/js/models/*.js', 
+          'source/js/views/*.js', 
+          'source/js/app.js'
+        ],
         dest: 'dist/js/app.js',
       },
     },
@@ -95,8 +107,8 @@ module.exports = function (grunt) {
 
     watch: {
       javascript: {
-        files: ['js/**/*.js'], // which files to watch
-        tasks: ['jshint', 'concat', 'less', 'haml'],
+        files: ['source/js/**/*.js', 'source/less/*.less', 'source/jade/*.jade'], // which files to watch
+        tasks: ['jshint', 'concat', 'less', 'jade'],
         options: {
           nospawn: true
         }

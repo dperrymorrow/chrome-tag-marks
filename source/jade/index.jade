@@ -21,10 +21,12 @@ body
         .label
           {{timeAgo}}
 
-    .row-fluid
+    .row-fluid.link-container
       .span10
-        a.url(href="{{{url}}}")
-          {{shortTitle}}
+        a.url(href="{{{url}}}") {{shortTitle}}
       .span2
         a.delete(href="#bookmark/destroy{{id}}")
           i.icon-trash
+
+  script(src="dist/js/vendor.min.js")
+  script(src="dist/js/app.js")

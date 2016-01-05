@@ -19,7 +19,6 @@
   "dependencies": {
     "backbone": "^1.2.3",
     "font-awesome": "^4.5.0",
-    "handlebars": "^4.0.5",
     "moment": "^2.11.0",
     "mustache": "^2.2.1",
     "underscore.string": "^3.2.2",
